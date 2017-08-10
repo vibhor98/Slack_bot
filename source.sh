@@ -1,0 +1,5 @@
+
+export VIBHOR_SLACK_TOKEN='xoxb-207770090644-nuaIgpyyG8eX48voyZAb5Mgd'
+export VIBHOR_SLACK_NAME='vibhor_bot'
+export VIBHOR_SLACK_ID='U63NN2NJY'
+
