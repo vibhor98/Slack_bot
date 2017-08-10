@@ -13,6 +13,6 @@ Contains three files -
 
 3. Recognizes ['bye', 'cya', 'goodbye', 'later'] messages and can reply as - ['Bye {mention}', 'See you Later', 'See you soon!']
 
-4. Recognizes ['how are you', "what's up", 'tell me about you', "what's going on", "how it's going", "how have you been", "are you well", 'how are you keeping', 'what have you been up to', "what's happening"] and can even reply as - ["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 'Fine, thanks', 'Great! How are you doing?',"I've been better"].
+4. Recognizes ['how are you', "what's up", 'tell me about you', "what's going on", "how it's going", "how have you been", "are you well", 'how are you keeping', 'what have you been up to', "what's happening"] and can even reply as - ["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 'Fine, thanks', 'Great! How are you doing?', "I've been better"].
 
  
