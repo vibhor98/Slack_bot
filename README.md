@@ -6,7 +6,7 @@ Contains three files -
 2. vibhor_bot.py starts the bot.
 3. source.sh contains all the api tokens.
 
-##Basic Features
+## Basic Features
 1. This bot notifies the user about the messages (public or private) in which the user is @mentioned or tagged. 
 
 2. Recognizes ['hello', 'hi', 'hey', 'hola', 'sup', 'yo', 'ohai', 'morning', 'bonjour'] messages and can even reply appropriately as ['Hello {mention}...', 'Hi {mention}!', 'Hola!'] where {mention} specifies the username of the person to whom message is to be sent.
