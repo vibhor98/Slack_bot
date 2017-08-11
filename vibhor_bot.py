@@ -75,6 +75,11 @@ def handle_message(message, user, channel):
     elif is_how_r_u( message):
         mention = get_mention( user)
         post_message( say_about_u(mention), channel)
+    elif is_time( message):
+        mention = get_mention( user)
+        post_message( tell_time(mention), channel)
+    else:
+        post_message("Not sure what you have just said!", channel)
 
 #main()    
 def run():
@@ -88,6 +93,13 @@ def run():
                     if is_for_me( event):
                         handle_message( message=event.get('text'),
                         user=event.get('user'), channel=event.get('channel'))
+                    
+                    if event.get('type') == 'typing':
+                        print 'Typing...'
+
+                    if str(datetime.now()).split()[1] == '00:00:00':
+                        post_message(message="It's midnight of %s" % (str(datetime.now()).split()[0]), channel=event.get('channel'))     
+            
             time.sleep( SOCKET_DELAY)
     else:
         print '[!] Connection to the Slack failed'
