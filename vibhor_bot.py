@@ -43,6 +43,10 @@ def is_bye(message):
     tokens = [word.lower() for word in message.strip().split()]
     return any( word in tokens for word in ['bye', 'cya', 'goodbye', 'later'])
 
+def is_time( message):
+    message.replace('?', '')
+    return any( st in message.strip().lower() for st in ['time', 'what is the hour of the day', 'tell me the date today', "what's the day today", 'date', "what's the date today"])
+
 def say_hi(user_mention):
     response = random.choice(['Hello {mention}...', 'Hi {mention}!', 'Hola!'])
     return response.format( mention=user_mention)
@@ -59,6 +63,9 @@ def is_how_r_u( message):
 def say_about_u (user_mention):
     response = random.choice(["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 'Fine, thanks', 'Great! How are you doing?',"I've been better"])
     return response.format( mention=user_mention)
+
+def tell_time(user_mention):
+    return str(time.ctime()) + str(user_mention)
 
 #posts a response to the channel on behalf of the user
 def post_message( message, channel):
