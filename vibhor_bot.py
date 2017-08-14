@@ -56,6 +56,7 @@ def say_bye(user_mention):
     response = random.choice(['Bye {mention}', 'See you Later', 'See you soon!'])
     return response.format( mention=user_mention)
 
+
 def is_how_r_u( message):
     message.replace('?', '')
     return any( st in message.strip().lower() for st in ['how are you', "what's up", 'tell me about you', "what's going on", "how it's going", "how have you been", "are you well", 'how are you keeping',
@@ -65,8 +66,28 @@ def say_about_u (user_mention):
     response = random.choice(["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 'Fine, thanks', 'Great! How are you doing?',"I've been better"])
     return response.format( mention=user_mention)
 
+
 def tell_time(user_mention):
     return str(time.ctime()) + str(user_mention)
+
+
+def is_weather( message):
+    return any( message.strip().lower().startswith(st) for st in ['weather', 'tell me weather'])
+
+
+def weather_forecast(place):
+    base_url = 'http://api.openweathermap.org/data/2.5/forecast?q='
+    url = base_url + place + 'india&APPID=041d68834f4ca8f569d71cd6df88ae61'
+    data = json.load(urllib2.urlopen(url))
+    return data
+
+
+def tell_weather( message, channel):
+    place = message.split()[-1]
+    data2 = weather_forecast(place)
+    post_message('Condition: ' + data2['list'][0]['weather'][0]['main'] + ' (' + data2['list'][0]['weather'][0]['description']   
+                 + ')', channel)
+    post_message('Temperature: ' + str(float(data2['list'][0]['main']['temp']) - 273.15) + ' Celsius', channel)
 
 #posts a response to the channel on behalf of the user
 def post_message( message, channel):
