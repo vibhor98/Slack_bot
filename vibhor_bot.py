@@ -107,6 +107,10 @@ def handle_message(message, user, channel):
     elif is_time( message):
         mention = get_mention( user)
         post_message( tell_time(mention), channel)
+        
+    elif is_weather( message):
+        tell_weather(message, channel)
+        
     else:
         post_message("Not sure what you have just said!", channel)
 
