@@ -1,22 +1,27 @@
-import os, time, random, slackclient
-import json, urllib2
+import json
+import os
+import random
+import slackclient
+import time 
+import urllib2
 
-#delay in secs
+# delay in secs
 SOCKET_DELAY = 1
 
-#slackbot environment variables
+# slackbot environment variables
 VIBHOR_SLACK_TOKEN = os.environ.get('VIBHOR_SLACK_TOKEN')
 VIBHOR_SLACK_NAME = os.environ.get('VIBHOR_SLACK_NAME')
 VIBHOR_SLACK_ID = os.environ.get('VIBHOR_SLACK_ID')
 
-#VIBHOR_SLACK_TOKEN='xoxb-207770090644-nuaIgpyyG8eX48voyZAb5Mgd'
-#VIBHOR_SLACK_NAME='vibhor_bot'
-#VIBHOR_SLACK_ID='U63NN2NJY'
+# VIBHOR_SLACK_TOKEN='xoxb-207770090644-nuaIgpyyG8eX48voyZAb5Mgd'
+# VIBHOR_SLACK_NAME='vibhor_bot'
+# VIBHOR_SLACK_ID='U63NN2NJY'
 
-#initialise the slack client
+# initialise the slack client
 vibhor_slack_client = slackclient.SlackClient(VIBHOR_SLACK_TOKEN)
 
-#checks if mesg is privately for the user or mentioned for the user in public chat
+
+# checks if mesg is privately for the user or mentioned for the user in public chat
 def is_for_me(event):
     msg_type = event.get('type')
     if msg_type and msg_type=='message' and not(event.get('user') == VIBHOR_SLACK_ID):
@@ -27,30 +32,38 @@ def is_for_me(event):
             return True
     return False
 
-#checks if Slack channel is private
+
+# checks if Slack channel is private
 def is_private( event):
-    return event.get('channel').startswith('D')     #as private channel startswith 'D'
+    return event.get('channel').startswith('D')     # As private channel startswith 'D'
+
 
 def get_mention(user):
     return '<@{user}>'.format( user=user)
 
-vibhor_slack_mention = get_mention( VIBHOR_SLACK_ID)        #way the bot is mentioned in the chats
+vibhor_slack_mention = get_mention( VIBHOR_SLACK_ID)        # Way the bot is mentioned in the chats
+
 
 def is_hi(message):
     tokens = [word.lower() for word in message.strip().split()]
     return any( word in tokens for word in ['hello', 'hi', 'hey', 'hola', 'sup', 'yo', 'ohai', 'morning', 'bonjour'])
 
+
 def is_bye(message):
     tokens = [word.lower() for word in message.strip().split()]
     return any( word in tokens for word in ['bye', 'cya', 'goodbye', 'later'])
 
+
 def is_time( message):
     message.replace('?', '')
-    return any( st in message.strip().lower() for st in ['time', 'what is the hour of the day', 'tell me the date today', "what's the day today", 'date', "what's the date today"])
+    return any( st in message.strip().lower() for st in ['time', 'what is the hour of the day', 'tell me the date today', 
+                                                         "what's the day today", 'date', "what's the date today"])
+
 
 def say_hi(user_mention):
     response = random.choice(['Hello {mention}...', 'Hi {mention}!', 'Hola!'])
     return response.format( mention=user_mention)
+
 
 def say_bye(user_mention):
     response = random.choice(['Bye {mention}', 'See you Later', 'See you soon!'])
@@ -59,11 +72,13 @@ def say_bye(user_mention):
 
 def is_how_r_u( message):
     message.replace('?', '')
-    return any( st in message.strip().lower() for st in ['how are you', "what's up", 'tell me about you', "what's going on", "how it's going", "how have you been", "are you well", 'how are you keeping',
-                                                        'what have you been up to', "what's happening"])
+    return any( st in message.strip().lower() for st in ['how are you', "what's up", 'tell me about you', "what's going on", "how it's going", 
+                                              "how have you been", "are you well", 'how are you keeping',
+                                              'what have you been up to', "what's happening"])
 
 def say_about_u (user_mention):
-    response = random.choice(["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 'Fine, thanks', 'Great! How are you doing?',"I've been better"])
+    response = random.choice(["I'm fine {mention}", 'Nice', 'Fit and Healthy', 'Awesome! {mention}', 
+                              'Fine, thanks', 'Great! How are you doing?',"I've been better"])
     return response.format( mention=user_mention)
 
 
@@ -89,10 +104,12 @@ def tell_weather( message, channel):
                  + ')', channel)
     post_message('Temperature: ' + str(float(data2['list'][0]['main']['temp']) - 273.15) + ' Celsius', channel)
 
-#posts a response to the channel on behalf of the user
+
+# posts a response to the channel on behalf of the user
 def post_message( message, channel):
     vibhor_slack_client.api_call( 'chat.postMessage', text=message,
                                   channel=channel, as_user=True)
+
 
 def handle_message(message, user, channel):
     if is_hi( message):
@@ -114,7 +131,8 @@ def handle_message(message, user, channel):
     else:
         post_message("Not sure what you have just said!", channel)
 
-#main()    
+
+# main()    
 def run():
     if vibhor_slack_client.rtm_connect():
         print '[.] Slack bot is ONN'
