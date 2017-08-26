@@ -1,7 +1,12 @@
+import bs4
 import json
+from lang_translator import translate
 import os
 import random
+import requests
+from scrabble import scrabble
 import slackclient
+import sys
 import time 
 import urllib2
 
@@ -116,6 +121,23 @@ def is_translate( message):
 def tell_translation( message, channel):
     msg = translate(message)
     post_message(msg, channel)
+	
+def is_scrabble(message):
+    if message == None:
+	return False
+    if message.lower().startswith('scrabble') or message.lower().startswith('jumble'):
+        return True
+    else:
+        return False
+
+def scrabble_cheat(message, channel):
+    rack = message.split()[1]
+    words = scrabble( rack)
+    result = "Bingo!! Here's the cheat ... \
+    \n Use the word with max. score and WIN your Scrabble game in minutes\n\n"
+    for word in words:
+        result += 'score: ' + str(word[0]) + '     ' + word[1] + '\n'
+    post_message(result, channel)
 
 
 # posts a response to the channel on behalf of the user
@@ -172,9 +194,6 @@ def run():
                     if is_for_me( event):
                         handle_message( message=event.get('text'),
                         user=event.get('user'), channel=event.get('channel'))
-                    
-                    if event.get('type') == 'typing':
-                        print 'Typing...'
 
                     if str(datetime.now()).split()[1] == '00:00:00':
                         post_message(message="It's midnight of %s" % (str(datetime.now()).split()[0]), channel=event.get('channel'))     
