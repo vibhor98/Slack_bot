@@ -103,6 +103,19 @@ def tell_weather( message, channel):
     post_message('Condition: ' + data2['list'][0]['weather'][0]['main'] + ' (' + data2['list'][0]['weather'][0]['description']   
                  + ')', channel)
     post_message('Temperature: ' + str(float(data2['list'][0]['main']['temp']) - 273.15) + ' Celsius', channel)
+    
+def is_translate( message):
+	if message == None:
+		return False
+	if message.lower().startswith('translate'):
+		return True
+	else:
+		return False
+
+
+def tell_translation( message, channel):
+    msg = translate(message)
+    post_message(msg, channel)
 
 
 # posts a response to the channel on behalf of the user
@@ -112,21 +125,36 @@ def post_message( message, channel):
 
 
 def handle_message(message, user, channel):
-    if is_hi( message):
+    if is_translate( message):
+        tell_translation(message, channel)
+    
+    elif is_hi( message):
         mention = get_mention(user) 
         post_message( say_hi(mention), channel)
+    
     elif is_bye( message):
         mention = get_mention(user)
         post_message( say_bye(mention), channel)
+    
     elif is_how_r_u( message):
         mention = get_mention( user)
         post_message( say_about_u(mention), channel)
+    
     elif is_time( message):
         mention = get_mention( user)
         post_message( tell_time(mention), channel)
         
     elif is_weather( message):
         tell_weather(message, channel)
+        
+    elif is_scrabble(message):
+        scrabble_cheat(message, channel)
+
+    elif is_movie(message) :
+    	movie(message, channel)
+	
+    elif is_hotel(message) :
+    	hotel(message, channel)
         
     else:
         post_message("Not sure what you have just said!", channel)
