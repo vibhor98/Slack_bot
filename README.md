@@ -1,10 +1,11 @@
 # Slack_bot
-Using Slack API, this bot notifies all the messages in which the user is mentioned or tagged and can even reply for some recognised messages. 
+This Slack bot is an interactive and helpful bot. Using Slack's Real Time Messaging API, this bot notifies all the messages in which the user is mentioned or tagged and can even reply for most of the messages. 
 
 Contains three files - 
 1. `discover.py` checks whether the bot is working or not. Moreover, it tells us the id of our bot associated with the slack.
 2. `vibhor_bot.py` starts the bot.
 3. `source.sh` contains all the api tokens.
+4. `lang_translator.py` translates the script into any language specified by the user. Works on the google translator module named as `googletrans`. It is one of the best features 
 
 ## Basic Features
 1. This bot notifies the user about the messages (public or private) in which the user is @mentioned or tagged. 
