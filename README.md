@@ -5,7 +5,7 @@ Contains three files -
 1. `discover.py` checks whether the bot is working or not. Moreover, it tells us the id of our bot associated with the slack.
 2. `vibhor_bot.py` starts the bot.
 3. `source.sh` contains all the api tokens.
-4. `lang_translator.py` translates the script into any language specified by the user. Works on the google translator module named as `googletrans`. It is one of the best features 
+4. `lang_translator.py` translates the script into any language specified by the user. Works on the google translator module named as `googletrans`. It is one of the best features that gives the user a sense of multilinguality. It is highly beneficial for the professionals having trouble in speaking local languages.
 
 ## Basic Features
 1. This bot notifies the user about the messages (public or private) in which the user is @mentioned or tagged. 
