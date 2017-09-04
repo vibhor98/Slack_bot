@@ -26,7 +26,7 @@ VIBHOR_SLACK_ID = os.environ.get('VIBHOR_SLACK_ID')
 vibhor_slack_client = slackclient.SlackClient(VIBHOR_SLACK_TOKEN)
 
 
-# checks if mesg is privately for the user or mentioned for the user in public chat
+# checks if message is privately for the user or mentioned for the user in public chat
 def is_for_me(event):
     msg_type = event.get('type')
     if msg_type and msg_type=='message' and not(event.get('user') == VIBHOR_SLACK_ID):
