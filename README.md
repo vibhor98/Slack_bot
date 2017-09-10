@@ -8,7 +8,7 @@ Contains three files -
 4. `lang_translator.py` translates the script into any language specified by the user. Works on the google translator module named as `googletrans`. It is one of the best features that gives the user a sense of multilinguality. It is highly beneficial for the professionals having trouble in speaking local languages.
 
 ## Basic Features
-1. This bot notifies the user about the messages (public or private) in which the user is @mentioned or tagged. 
+1. This bot replies the user against the messages (public or private) in which the user is @mentioned or tagged. 
 
 2. Recognizes `['hello', 'hi', 'hey', 'hola', 'sup', 'yo', 'ohai', 'morning', 'bonjour']` messages and can even reply appropriately as `['Hello {mention}...', 'Hi {mention}!', 'Hola!']` where {mention} specifies the username of the person to whom message is to be sent.
 
