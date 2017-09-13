@@ -6,6 +6,7 @@ Contains three files -
 2. `vibhor_bot.py` starts the bot.
 3. `source.sh` contains all the api tokens.
 4. `lang_translator.py` translates the script into any language specified by the user. Works on the google translator module named as `googletrans`. It is one of the best features that gives the user a sense of multilinguality. It is highly beneficial for the professionals having trouble in speaking local languages.
+5. `Scrabble.py` integrates scrabble helper to the Slack bot. It helps the user in getting all the valid words from the given rack of words. Thus, it helps the user to play and win the mind game- Scrabble.
 
 ## Basic Features
 1. This bot replies the user against the messages (public or private) in which the user is @mentioned or tagged. 
