@@ -1,5 +1,5 @@
 # Slack_bot
-This Slack bot is an interactive and helpful bot. Using Slack's Real Time Messaging API, this bot notifies all the messages in which the user is mentioned or tagged and can even reply for most of the messages. 
+This Slack bot is an interactive and helpful bot. Using Slack's Real Time Messaging API, this bot notifies all the messages in which the user is mentioned or tagged and can even reply for most of the messages appropriately. 
 
 Contains three files - 
 1. `discover.py` checks whether the bot is working or not. Moreover, it tells us the id of our bot associated with the slack.
