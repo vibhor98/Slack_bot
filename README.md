@@ -9,7 +9,7 @@ Contains three files -
 5. `Scrabble.py` integrates scrabble helper to the Slack bot. It helps the user in getting all the valid words from the given rack of words. Thus, it helps the user to play and win the mind game- Scrabble.
 
 ## Basic Features
-1. This bot replies the user for the messages (public or private) in which the user is @mentioned or tagged. 
+1. This bot replies the user for the messages (public or private) in which the user is `@mentioned` or tagged. 
 
 2. Recognizes `['hello', 'hi', 'hey', 'hola', 'sup', 'yo', 'ohai', 'morning', 'bonjour']` messages and can even reply appropriately as `['Hello {mention}...', 'Hi {mention}!', 'Hola!']` where {mention} specifies the username of the person to whom message is to be sent.
 
