@@ -49,4 +49,13 @@ Contains three files -
 12.  And last but not the least, whenever you say `'bye', 'goodbye', 'revoir', 'adios', 'later' or 'cya'....`
     Then in a doleful way, it says `'see you later, alligator...','adios amigo','Bye !' or 'Au revoir!'` because it doesn't want to leave you...
 
+## Installation
+
+This bot requires python2. 
+It requires the following libraries: `bs4` `googletrans` `requests` `slackclient`
+
+## Usage
+
+It can be started by `python2 vibhor_bot.py`.
+
 There can be lots of improvements here and new features can be added too. Contributors are welcomed!:)
