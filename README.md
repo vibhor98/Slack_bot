@@ -58,4 +58,5 @@ It requires the following libraries: `bs4` `googletrans` `requests` `slackclient
 
 It can be started by `python2 vibhor_bot.py`.
 
+If you liked it and found it resourceful, please don't hesitate to star it.
 There can be lots of improvements here and new features can be added too. Contributors are welcomed!:)
