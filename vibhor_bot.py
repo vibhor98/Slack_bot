@@ -110,21 +110,21 @@ def tell_weather( message, channel):
     post_message('Temperature: ' + str(float(data2['list'][0]['main']['temp']) - 273.15) + ' Celsius', channel)
     
 def is_translate( message):
-	if message == None:
-		return False
-	if message.lower().startswith('translate'):
-		return True
-	else:
-		return False
+        if message == None:
+                return False
+        if message.lower().startswith('translate'):
+                return True
+        else:
+                return False
 
 
 def tell_translation( message, channel):
     msg = translate(message)
     post_message(msg, channel)
-	
+
 def is_scrabble(message):
     if message == None:
-	return False
+        return False
     if message.lower().startswith('scrabble') or message.lower().startswith('jumble'):
         return True
     else:
@@ -172,11 +172,11 @@ def handle_message(message, user, channel):
     elif is_scrabble(message):
         scrabble_cheat(message, channel)
 
-    elif is_movie(message) :
-    	movie(message, channel)
-	
-    elif is_hotel(message) :
-    	hotel(message, channel)
+    elif is_movie(message):
+        movie(message, channel)
+
+    elif is_hotel(message):
+        hotel(message, channel)
         
     else:
         post_message("Not sure what you have just said!", channel)
