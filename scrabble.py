@@ -16,7 +16,7 @@ def scrabble(rack):
     """parser = argparse.ArgumentParser()   
     parser.add_argument("echo", help="Echo the wrack of letters", type=str)
     args = parser.parse_args()
-    print args.echo
+    print(args.echo)
     rack = args.echo"""
 
     #rack = raw_input('Enter rack of words: ').lower()       #taking rack of word from the user
@@ -51,4 +51,4 @@ def scrabble(rack):
         return ans
 
 if __name__ == '__main__':
-    print scrabble('wfevrbrebb')
+    print(scrabble('wfevrbrebb'))
