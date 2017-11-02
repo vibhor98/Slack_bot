@@ -12,7 +12,7 @@ def translate(message):
     translations = translator.translate([script], dest=lang.replace('-', ''))
 
     for translation in translations:
-        return 'Translated script is: \n' + translation.text
+        return('Translated script is: \n' + translation.text)
         #print(translation.origin, ' -> ', translation.text)
 
 '''
@@ -23,4 +23,4 @@ Spanish: de
 Danish: da
 English: en'''
 if __name__ == '__main__':
-    print translate('translate fr- How are you?')
+    print(translate('translate fr- How are you?'))

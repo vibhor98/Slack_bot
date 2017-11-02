@@ -8,7 +8,10 @@ from scrabble import scrabble
 import slackclient
 import sys
 import time 
-import urllib2
+try:
+    from urllib2 import urlopen
+except ModuleNotFoundError:
+    from urllib.request import urlopen
 
 # delay in secs
 SOCKET_DELAY = 1
@@ -98,7 +101,7 @@ def is_weather( message):
 def weather_forecast(place):
     base_url = 'http://api.openweathermap.org/data/2.5/forecast?q='
     url = base_url + place + 'india&APPID=041d68834f4ca8f569d71cd6df88ae61'
-    data = json.load(urllib2.urlopen(url))
+    data = json.load(urlopen(url))
     return data
 
 
@@ -110,21 +113,21 @@ def tell_weather( message, channel):
     post_message('Temperature: ' + str(float(data2['list'][0]['main']['temp']) - 273.15) + ' Celsius', channel)
     
 def is_translate( message):
-	if message == None:
-		return False
-	if message.lower().startswith('translate'):
-		return True
-	else:
-		return False
+        if message == None:
+                return False
+        if message.lower().startswith('translate'):
+                return True
+        else:
+                return False
 
 
 def tell_translation( message, channel):
     msg = translate(message)
     post_message(msg, channel)
-	
+
 def is_scrabble(message):
     if message == None:
-	return False
+        return False
     if message.lower().startswith('scrabble') or message.lower().startswith('jumble'):
         return True
     else:
@@ -172,11 +175,11 @@ def handle_message(message, user, channel):
     elif is_scrabble(message):
         scrabble_cheat(message, channel)
 
-    elif is_movie(message) :
-    	movie(message, channel)
-	
-    elif is_hotel(message) :
-    	hotel(message, channel)
+    elif is_movie(message):
+        movie(message, channel)
+
+    elif is_hotel(message):
+        hotel(message, channel)
         
     else:
         post_message("Not sure what you have just said!", channel)
@@ -185,12 +188,12 @@ def handle_message(message, user, channel):
 # main()    
 def run():
     if vibhor_slack_client.rtm_connect():
-        print '[.] Slack bot is ONN'
+        print('[.] Slack bot is ONN')
         while True:
             event_list = vibhor_slack_client.rtm_read()
             if len( event_list)>0:
                 for event in event_list:
-                    print event
+                    print(event)
                     if is_for_me( event):
                         handle_message( message=event.get('text'),
                         user=event.get('user'), channel=event.get('channel'))
@@ -200,7 +203,7 @@ def run():
             
             time.sleep( SOCKET_DELAY)
     else:
-        print '[!] Connection to the Slack failed'
+        print('[!] Connection to the Slack failed')
 
 if __name__ == '__main__':
     run()
