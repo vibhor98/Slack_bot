@@ -49,6 +49,7 @@ Contains three files -
 12.  And last but not the least, whenever you say `'bye', 'goodbye', 'revoir', 'adios', 'later' or 'cya'....`
     Then in a doleful way, it says `'see you later, alligator...','adios amigo','Bye !' or 'Au revoir!'` because it doesn't want to leave you...
 
+
 ## Installation
 
 This bot requires python2. 
@@ -59,4 +60,14 @@ It requires the following libraries: `bs4` `googletrans` `requests` `slackclient
 It can be started by `python2 vibhor_bot.py`.
 
 If you liked it and found it resourceful, please don't hesitate to star it.
+
+## Further Ideas
+
+1.  Give the bot some domains to ping every few seconds. Then it will let you know if one of them is not responding.
+
+2.  RSS parsing.
+
+3.  Give daily stats about a certain website's response time, Google rank, uptime, etc.
+
 There can be lots of improvements here and new features can be added too. Contributors are welcomed!:)
+
