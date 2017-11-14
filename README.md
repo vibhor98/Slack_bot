@@ -53,7 +53,7 @@ Contains three files -
 ## Installation
 
 This bot requires python2. 
-It requires the following libraries: `bs4` `googletrans` `requests` `slackclient`
+It requires the following libraries: `bs4` `googletrans` `requests` `slackclient` `gTTS`
 
 ## Usage
 
