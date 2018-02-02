@@ -69,5 +69,5 @@ If you liked it and found it resourceful, please don't hesitate to star it.
 
 3.  Give daily stats about a certain website's response time, Google rank, uptime, etc.
 
-There can be lots of improvements here and new features can be added too. Contributors are welcomed!:)
+There can be lots of improvements here and new features can be added too. Contributors are welcomed! :)
 
